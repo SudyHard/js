@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>set基本语法</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 声明
+		let set = new Set(['a', 'b']);
+		let set2 = new Set([1, 2, 3, 4, 5]);
+		// 添加元素
+		set.add('a');
+		console.log(set);
+		// 删除元素
+		console.log(set.delete('a'));
+		// 查看元素个数
+		console.log(set.size);
+		// 查看某一元素是否存在
+		console.log(set2.has(2));
+		// 查看所有的元素
+		console.log(set2.values());
+		// 清空set对象
+		set.clear();
+	</script>
+</html>

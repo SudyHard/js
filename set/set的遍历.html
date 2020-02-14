@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>set的遍历</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		let set = new Set([1, 2, 3, 4, 5]);
+		// 方法一
+		for (let value of set) {
+			console.log(value);
+		}
+		console.log('\n');
+		// 方法二
+		set.forEach(function(item) {
+			console.log(item);
+		});
+	</script>
+</html>

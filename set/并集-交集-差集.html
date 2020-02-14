@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>并集-交集-差集</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		let a = new Set([1, 2, 3, 4, 5]);
+		let b = new Set([4, 5, 7, 8]);
+		// 并集
+		console.log(new Set([...a, ...b]));
+		// 交集
+		console.log(
+			new Set([...a].filter(function(item) {
+				return b.has(item);
+			}))
+		);
+		// 差集
+		console.log(
+			new Set([...a].filter(function(item) {
+				return !b.has(item);
+			}))
+		);
+	</script>
+</html>

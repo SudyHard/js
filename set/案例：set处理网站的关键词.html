@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>案例：set处理网站的关键词</title>
+	</head>
+	<body>
+		<input type="text" name="input">
+		<ul></ul>
+	</body>
+	<script type="text/javascript">
+		let obj = {
+			data: new Set(),
+			keyword(word) {
+				this.data.add(word);
+			},
+			show() {
+				let ul = document.getElementsByTagName('ul')[0];
+				ul.innerHTML = '';
+				for (let word of this.data) {
+					ul.innerHTML += `<li>${word}</li>`;
+				}
+			}
+		}
+		let input = document.querySelector('[name = "input"]');
+		input.addEventListener('blur', function() {
+			if (false){}
+			obj.keyword(this.value);
+			obj.show();
+		});
+	</script>
+</html>
