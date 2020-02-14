@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>函数参数:点语法与arguments</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 点语法与arguments作用是相同的，用来接收不确定数量的实参
+		
+		// 例：点语法 
+		function sum(...args) {
+			return args.reduce(function(a, b) {
+				return a + b;
+			});
+		}
+		console.log(sum(1, 2, 3, 4, 5, 6, 7));
+		
+		// 例：arguments
+		function sum2() {
+			return [...arguments].reduce(function(a, b) {
+				return a + b;
+			});
+		}
+		console.log(sum2(1, 2, 3, 4, 5, 6));
+	</script>
+</html>

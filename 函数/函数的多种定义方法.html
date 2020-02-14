@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>函数的多种定义方法</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 使用对象的方法定义
+		let func = new Function('title', 'console.log(title)');
+		func('posser');
+		// 自变量的形式(标准写法)
+		function hd(title) {
+			console.log(title);
+		}
+		hd('hd');
+		// 使用赋值语句定义
+		let cms = function(title) {
+			console.log(title);
+		}; //有分号
+		cms('cms');
+		// 在对象内定义
+		let user = {
+			name: null,
+			// 表达式形式
+			setUsername: function(name) {
+				this.name = name;
+			},
+			// 简写(推荐写法)
+			getUsername() {
+				return this.name;
+			}
+		}
+		user.setUsername('user');
+		console.log(user.getUsername());
+	</script>
+</html>
