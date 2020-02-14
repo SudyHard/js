@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>与字符串相关的类型转换</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 字符串转数字
+		const str = '12345';
+		console.log(typeof Number(str));
+		console.log(str * 1 + 10);
+		const str2 = '222posser';
+		console.log(parseInt(str2)); //非纯数字也可以转int(纯数字也可以)
+		const str3 = '222.2posser';
+		console.log(parseFloat(str3));//非纯数字也可以转float(纯数字也可以)
+		// 数字转字符串
+		const num = 66;
+		console.log(typeof (num + '')); //隐式
+		console.log(typeof String(num)); // 显式
+		console.log(typeof num.toString());
+		// 数组转字符串
+		const arr = ['www.', 'baidu', '.com'];
+		console.log(arr.toString()); //以逗号隔开每一个元素
+		console.log(arr.join('')); //以空字符串隔开，jion()的参数可以的随意的字符串
+		
+	</script>
+</html>

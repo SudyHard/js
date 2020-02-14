@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>杨辉三角</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		/* 建立一个杨辉三角形 */
+		function createTriangle(row = 5) {
+			for (let i = 1; i < row; i++) {
+				for (let j = row - i; j > 0; j--) {
+					document.write('&ensp;');
+				}
+				for (let k = i * 2 - 1; k > 0; k--) {
+					document.write('*');
+				}
+				document.write(`<br />`)
+			}
+		}
+		createTriangle(10);
+	</script>
+</html>

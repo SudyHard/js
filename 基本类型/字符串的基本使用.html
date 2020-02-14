@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>字符串的基本使用</title>
+	</head>
+	<body>
+		<p><input type="text" name="passwd"></p>
+	</body>
+	<script type="text/javascript">
+		// 使用严格模式
+		"use strict";
+		
+		let exam = 'posserLDM';
+		//长度
+		console.log(exam.length);
+		//全部转大写
+		console.log(exam.toUpperCase());
+		//全部转小写
+		console.log(exam.toLocaleLowerCase());
+		// 取字符串当中的单个字符
+		console.log(exam.charAt(0));
+		console.log(exam[0]);
+		//去头尾空格
+		let exam2 = '       www.baidu.com    ';
+		console.log(exam2.trim());
+		// 截取
+		console.log(exam.slice(1)); // 从下标1开始截取
+		console.log(exam.slice(1, 3)); // 截取下标1到3的字符
+		console.log(exam.substring(1));// 从下标1开始截取
+		console.log(exam.substring(1, 3));// 截取下标1到3的字符
+		console.log(exam.substr(1));// 从下标1开始截取
+		console.log(exam.substr(1, 3));// 从下标1开始往后截取3个字符
+		// 查找关键字(从左开始)
+		console.log(exam.indexOf('o')); //从下标0开始查找o这个子串
+		console.log(exam.indexOf('o', 1)); //从下标1开始查找o这个子串（没有返回-1）
+		console.log(exam.includes('o'));//从下标0开始查找o这个子串
+		console.log(exam.includes('o', 1));//从下标1开始查找o这个子串（没有返回false）
+		// 以某一个关键字开头
+		console.log(exam.startsWith('p'));
+		// 以某一个关键字结束
+		console.log(exam.endsWith('r'));//true or false
+		// 替换
+		console.log(exam.replace('r', 'R')); //把字符串中的r替换成R, 只换遇到的第一个
+		// 重复
+		console.log('*'.repeat(3)); //重复输出3个*
+		// 电话号码的模糊处理
+		function phone(num, len = 3) {
+			return String(num).slice(0, -len) + '*'.repeat(len);
+		}
+		console.log(phone(12345678901, 3));
+
+		// 实例1
+		let passwd = document.querySelector('[name = "passwd"]');
+		let span = document.createElement('span');
+		let p = document.getElementsByTagName('p')[0];
+		let error = '请输出长度大于5的密码';
+		passwd.addEventListener("keyup", function() {
+			let val = this.value = this.value.trim();
+			span.innerText = '';
+			if (val.length < 5) {
+				span.innerText = error;
+			}
+			p.appendChild(span);
+		});
+		// 实例2
+		let body = document.getElementsByTagName('body')[0];
+		let str = 'posser';
+		for (let i = 0; i <str.length; i++) {
+			let span = document.createElement('span');
+			span.style.fontSize = (i + 1) * 8 + "px";
+			span.innerText = str[i];
+			body.appendChild(span);
+		}
+		document.write('<br />');
+	</script>
+</html>
