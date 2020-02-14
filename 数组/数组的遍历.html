@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数组的遍历</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// forEach的使用
+		let cart = [
+			{name: "iphone", price: 5000},
+			{name: "imac", price: 1200},
+			{name: "ipda", price: 3200} ];
+		// 遍历数组中的所有元素
+		cart.forEach(function(item) {
+			item.price = 1000;
+		});
+		console.table(cart);
+		// 迭代器keys
+		let strs = ['posser', 'ldm'];
+		let keys = strs.keys();
+		while (({value, done} = keys.next()) && done === false) {
+			console.log(strs[value]);
+		}
+		for (let key of strs.keys()) {
+			console.log(strs[key]);
+		}
+		// 迭代器values
+		let values = strs.values();
+		while (({value, done} = values.next()) && done === false) {
+			console.log(value);
+		}
+		for (let value of strs.values()) {
+			console.log(value);
+		}
+		// 迭代器entries
+		let entries = strs.entries();
+		for (let [key, value] of entries) {
+			console.log(value);
+		}
+		// some方法的使用
+		let stu = [
+			{name: 'posser', js: 89},
+			{name: 'ldm', js: 99},
+			{name: 'dong', js: 55}
+		];
+		// 如果找到一个符合条件的表达式就为真
+		let flag = stu.some(function(value, index, stu){
+			return value.js < 60;
+		});
+		console.log(flag ? "有同学不及格":'全部的同学都及格');
+		let stu2 = [
+			{name: 'posser', js: 89},
+			{name: 'ldm', js: 99},
+			{name: 'dong', js: 65}
+		];
+		// 如果找到一个不符合条件表达式就为假
+		flag = stu2.every(function(value) {
+			return value.js < 60;
+		});
+		console.log(flag ? "有同学不及格":'全部的同学都及格');
+	</script>
+</html>

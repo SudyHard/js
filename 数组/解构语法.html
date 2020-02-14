@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>解构语法</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		let array = ['posser', 2020];
+		// 例一
+		let [name, year] = array;
+		console.log(name, year);
+		// 例二
+		let array2 = ['posser', 2020, 2019];
+		let [posser, ...arr] = array2;
+		console.log(posser, arr);
+		// 例三
+		function get() {
+			return ['posser', 2020];
+		}
+		let [p, y] = get();
+		console.log(p, y);
+		// 例四
+		function get2([name, year]) {
+			
+		}
+		get2(['name', 2012]);
+	</script>
+</html>

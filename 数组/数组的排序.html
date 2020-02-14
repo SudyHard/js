@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数组的排序</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 给基本类型进行排序
+		let arr = [1, 3, 2, 5, 4];
+		arr = arr.sort(function(a, b) {
+			return a - b; // 从小到大排序
+			// return b - a; // 从大到小排序
+		});
+		console.table(arr);
+		// 给引用类型进行排序
+		let cart = [
+			{name: "iphone", price: 5000},
+			{name: "imac", price: 1200},
+			{name: "ipda", price: 3200} ];
+		cart = cart.sort(function(a, b) {
+			return a.price - b.price; // 按price升序
+			// return b.price - a.price; // 按price降序
+		});
+		console.table(cart);
+	</script>
+</html>
