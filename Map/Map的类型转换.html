@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Map的类型转换</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		let map = new Map([['name', 'posser'], ['www', 'baidu.com'], ['sorce', 'js'], ['sc', 'js']]);
+		// 键值对转数组
+		console.log([...map]); //转成一个二维数组
+		// key转数组
+		console.log([...map.keys()]); //转成一个一维数组
+		// value转数组
+		console.log([...map.values()]); //转成一个一维数组
+		// 实例：找出value是js的键值对
+		let arr = [...map].filter(function(item) {
+			return item[1].includes('js');
+		});
+		map = new Map(arr);
+		console.log(map);
+	</script>
+</html>

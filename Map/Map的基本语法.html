@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Map的基本语法</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 创建Map对象
+		let map = new Map();
+		let map2 = new Map([[1, 2], [4, 5]]);
+		// 添加数据
+		map.set('name', 'posser');
+		map.set(function(){}, 'function');
+		map.set({}, 'object');
+		map.set(1, 'number');
+		console.log(map);
+		let obj = { name: 'posser'};
+		map.set(obj, 'ldm');
+		// 取出某一元素
+		console.log(map.get(obj)); //value
+		// 检测某一元素
+		console.log(map.has(obj)); //true\false
+		// 删除某一元素
+		console.log(map.delete(obj)); //true\false
+		// 清空对象
+		map.clear();
+	</script>
+</html>

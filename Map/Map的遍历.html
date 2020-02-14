@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Map的遍历</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		let map = new Map([['name', 'posser'], ['www', 'baidu.com'], ['sorce', 'js']]);
+		// 遍历key
+		for (let key of map.keys()) {
+			console.log(key);
+		}
+		console.log("\n");
+		// 遍历value
+		for (let value of map.values()) {
+			console.log(value);
+		}
+		console.log("\n");
+		// 遍历键值对
+		for (let [key, value] of map.entries()) {
+			console.log(key, value);
+		}
+		console.log("\n");
+		// forEach遍历
+		map.forEach(function(value, key) {
+			console.log(key, value);
+		});
+	</script>
+</html>

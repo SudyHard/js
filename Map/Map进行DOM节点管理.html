@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Map进行DOM节点管理</title>
+	</head>
+	<body>
+		<div name="posser">posser</div>
+		<div name="课程">课程</div>
+	</body>
+	<script type="text/javascript">
+		let map = new Map();
+		document.querySelectorAll('div').forEach(function(item) {
+			map.set(item, {
+				content: item.getAttribute('name')
+			});
+		});
+		// console.table(map);
+		map.forEach(function (config, elem) {
+			elem.addEventListener('click', function() {
+				alert(config.content);
+			});
+		});
+	</script>
+</html>
