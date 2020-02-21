@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>定义属性特征</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		"use strict";
+		let user = {
+			age: 18
+		}
+		console.log(
+			JSON.stringify(Object.getOwnPropertyDescriptor(user, 'age'), null, 2)
+		);
+		// 修改一个属性的权限 
+		Object.defineProperty(user, 'name', {
+			value: 'ldm', 
+			writable: false,
+			enumerable: false,
+			configurable: false
+		});
+		console.log(user.name);
+		// 同时修改多个属性的权限
+		Object.defineProperties(user, {
+			height: {
+				value: 'height',
+				writable: false,
+				enumerable: false,
+				configurable: false
+			},
+			width: {
+				value: 'width',
+				writable: false,
+				enumerable: false,
+				configurable: false
+			}
+		});
+		console.log(user.height);
+		console.log(user.width);
+		
+		/* 系统提供的对象属性控制的常用api */
+		// 不允许向对象中添加属性
+		Object.preventExtensions(user); // 不能动态添加属性
+		// 封闭对象
+		Object.seal(user); // 不能对属性删除、添加、配置
+		// 冻结对象
+		Object.freeze(user); // 不能对属性删除、添加、配置、修改
+	</script>
+</html>

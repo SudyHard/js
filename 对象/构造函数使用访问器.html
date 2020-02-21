@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>构造函数使用访问器</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function User(name, age) {
+			let data = {name, age};
+			Object.defineProperties(this, {
+				name: {
+					set(value) {
+						if (typeof value != 'string') {
+							console.log("请输入字符串");
+							return;
+						}
+						data.name = value;
+					},
+					get() { 
+						return data.name 
+					}
+				},
+				age: {
+					set(value) {
+						if (typeof value != 'string') {
+							console.log("请输入数字");
+							return;
+						}
+						data.age = value;
+					},
+					get() {
+						return data.age;
+					}
+				}
+			});
+		}
+		let ldm = new User('ldm', 18);
+		console.log(ldm.age);
+	</script>
+</html>

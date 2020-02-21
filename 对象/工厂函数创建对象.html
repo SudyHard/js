@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>工厂函数创建对象</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function user(name, age) {
+			return {
+				name, 
+				age,
+				show() {
+					console.log(`这个用户的名字是:${this.name}`);
+				},
+				showAge() {
+					console.log(`这个用户的年龄是:${this.age}`);
+				}
+			}
+		}
+		let user1 = user('张三', 15);
+		let user2 = user('李四', 18);
+		user1.show();
+		user2.showAge();
+	</script>
+</html>

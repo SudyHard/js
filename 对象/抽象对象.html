@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>抽象对象</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function User(name, age) {
+			// 利用闭包来设置属性不可在外部修改
+			let data = {name, age};
+			// 用作用域设置方法不可在外部访问
+			let getName = function() { 
+				return data.name
+			};
+			let getAge = function() { 
+				return data.age
+			};
+			this.show = () => { 
+				console.log(`姓名:${getName()}, 年龄:${getAge()}`);
+			}
+		}
+		let user1 = new User('小李', 13);
+		user1.show();
+	</script>
+</html>

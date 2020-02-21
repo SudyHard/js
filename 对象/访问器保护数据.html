@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>访问器保护数据</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		"use strict";
+		let user = {
+			// 如果后面用到请问控制器，一定要把属性放到一个对象当中，不然会出一些莫名奇妙的错误
+			data: {name: 'posser', age: 18},
+			set name(value) {
+				if (typeof value != 'string') {
+					throw new Error('你输入的姓名类型有误') 
+				}
+				this.data.name = value;
+			}, 
+			get name() {
+				return this.data.name;
+			},
+			get age() { // 方法名要和属性名一致
+				return this.data.age;
+			},
+			
+			set age(value) { // 方法名要和属性名一致
+				if (typeof value != "number" || value < 0 || value > 150) {
+					throw new Error('年龄输入的范围有误!');
+				}
+				this.data.age = value;
+			}
+		}
+		user.name = '123';
+		user.age = 14;
+		console.log(user.name);
+	</script>
+</html>

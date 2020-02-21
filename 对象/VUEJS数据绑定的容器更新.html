@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>VUEJS数据绑定的容器更新</title>
+	</head>
+	<body>
+		<p>输入1:<input type="text" v-model="title"></p>
+		<p>输入2:<input type="text" v-model="title"></p>
+		<div v-bind="title">这也会发生更新</div>
+	</body>
+	<script type="text/javascript">
+		"use strict";
+		function View() {
+			let proxy = new Proxy({}, {
+				get(obj, property) {},
+				set(obj, property, value) {
+					document.querySelectorAll(`[v-model="${property}"]`).forEach(item => {
+						item.value = value;
+					});
+					document.querySelectorAll(`[v-bind="${property}"]`).forEach(item => {
+						item.innerText = value;
+					});
+				}
+			});
+			this.init = function() {
+				const els = document.querySelectorAll('[v-model]');
+				els.forEach(item => {
+					item.addEventListener("keyup", function() {
+						proxy[this.getAttribute("v-model")] = this.value;
+					});
+				});
+			}
+		}
+		new View().init();
+	</script>
+</html>

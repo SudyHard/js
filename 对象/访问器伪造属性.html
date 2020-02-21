@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>访问器伪造属性</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		let user = {
+			list: [
+				{name: 'c语言', price: 100},
+				{name: 'java', price: 120},
+				{name: 'js', price: 80}
+			],
+			get total() {
+				return this.list.reduce((t, v) => t + v.price, 0);
+			}
+		};
+		console.log(user.total);
+	</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>代理工厂进行表单验证</title>
+		<style type="text/css">
+			.error {
+				border: 5px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" validate rule="max:13,min:3">
+		<input type="text" validate rule="max:3,isNumber">
+	</body>
+	<script type="text/javascript">
+		"use strict";
+		// 定义检验类
+		class Validate {
+			max(value, len) {
+				return value.length <= len;
+			}
+			min(value, len) {
+				return value.length >= len;
+			}
+			isNumber(value) {
+				return /^\d+$/.test(value);
+			}
+		}
+		// 代理工厂
+		function ProxyFactory(target) {
+			return new Proxy(target, {
+				get(target, key) {
+					return target[key];
+				},
+				set(target, key, elem) {
+					const rule = elem.getAttribute("rule");
+					const validate = new Validate();
+					let state = rule.split(',').every(rule => {
+						const info = rule.split(":");
+						return validate[info[0]](elem.value, info[1]);
+					});
+					elem.classList[state ? "remove" : "add"]("error");
+					return true;
+				}
+			});
+		}
+		const proxy = new ProxyFactory(document.querySelectorAll('[validate]'));
+		proxy.forEach((item, i) => {
+			item.addEventListener("keyup", function() {
+				proxy[i] = this;  // 触发代理工厂的set
+			});
+		});
+	</script>
+</html>

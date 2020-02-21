@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>对象与展开语法</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 点语法完成属性的合并
+		function upload(param) {
+			let config = {
+				type: '*.jpeg,*.png',
+				size: 99999
+			}
+			config = {...config, ...param};
+			return config;
+		}
+		console.log(upload({size: 10}));
+	</script>
+</html>
