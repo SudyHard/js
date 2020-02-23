@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>map的使用</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		let lesson = [
+			{title: 'java语言程序设计', desc: 'java'},
+			{title: '网页设计', desc: 'css'},
+			{title: '前端', desc: 'css'}
+		];
+		// 为数组中的对象加一个click属性
+		lesson.map(function(value, index, array){
+			value.click = 100;
+		});
+		console.table(lesson);
+	</script>
+</html>

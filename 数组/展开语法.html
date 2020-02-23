@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>展开语法</title>
+		<style type="text/css">
+			.hide {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div>posser</div>
+		<div>ldm</div>
+	</body>
+	<script type="text/javascript">
+		// 用展开语法进行数组的合并(两个数组的类型要相同)
+		let arr = ["posser", 'ldm'];
+		let ldm = ['www', 'baidu'];
+		arr = [...arr, ...ldm];
+		console.table(arr);
+		// 展开语法运用的函数的可变参数
+		function sum(...args) {
+			return args.reduce((s, v)=> {
+				return s + v;
+			}, 0);
+		}
+		console.log(sum(1, 2, 3, 4));
+		// 点语法操用DOM节点
+		let divs = document.querySelectorAll('div');
+		[...divs].map(function(item) {
+			item.addEventListener('click', function() {
+				this.classList.toggle('hide'); //点击后隐藏
+			});
+		});
+	</script>
+</html>
