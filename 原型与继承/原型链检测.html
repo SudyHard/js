@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>原型链检测</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// instanceof 检测对象中的 prototype 是否一样
+		function A() {}
+		let a = new A();
+		console.log(a instanceof A);
+		// obj.isPrototypeOf(obj2) 检测obj是否obj2的父级
+		let b = {};
+		let c = {};
+		Object.setPrototypeOf(c, b);
+		console.log(b.isPrototypeOf(c));
+	</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>方法重写</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 基类
+		function User() {}
+		User.prototype.show = function () {
+			console.log("user.show");
+		}
+		// 子类
+		function Admin() {}
+		Admin.prototype = Object.create(User.prototype);
+		Admin.prototype.constructor = Admin;
+		Admin.prototype.show = function() {
+			console.log("admin.show");
+		}
+		let hd = new Admin();
+		hd.show();
+	</script>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>属性的检测</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		let a = {name: 'ldm'};
+		let b = {url: 'www.baidu.com'};
+		// in检测，除了检查是否在某一对象上，还会检测是否在某一对象的原型链上
+		console.log('name' in a);  //true
+		Object.setPrototypeOf(a, b); // Object.setPrototypeOf(child, parent)
+		console.log("url" in a); // true
+		// obj.hasOwnProperty(parm) 只会检测当前的对象所有的属性
+		console.log(a.hasOwnProperty('name'));  //true
+		console.log(a.hasOwnProperty('url'));  //false 
+	</script>
+</html>
